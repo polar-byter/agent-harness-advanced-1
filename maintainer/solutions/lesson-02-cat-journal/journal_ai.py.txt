@@ -1,0 +1,10 @@
+    schema = {
+        'type': 'object',
+        'properties': {
+            'category': {'type': 'string', 'enum': list(CATEGORIES)},
+            'severity': {'type': 'integer', 'enum': [1, 2, 3]},
+        },
+        'required': ['category', 'severity'],
+    }
+    answer = ask(model, CLASSIFY_RULE, text, schema=schema, max_tokens=64)
+    return {'category': answer['category'], 'severity': answer['severity']}

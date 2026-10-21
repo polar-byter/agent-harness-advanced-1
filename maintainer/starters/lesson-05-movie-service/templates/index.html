@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Каталог фильмов</title>
+  <style>
+    body { font-family: Segoe UI, sans-serif; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #21384c; }
+    .tag { display: inline-block; background: #e6f3ef; border-radius: 10px; padding: 2px 10px; margin: 2px; color: #147c70; text-decoration: none; }
+    .tag.current { background: #147c70; color: white; }
+    .movie { border-bottom: 1px solid #cbd8e1; padding: 10px 0; }
+    .error { color: #b03030; }
+    input, textarea { width: 100%; margin: 4px 0; font: inherit; }
+  </style>
+</head>
+<body>
+  <h1>Каталог фильмов</h1>
+  <form method="get" action="/">
+    <input name="q" value="{{ query }}" placeholder="Что хочется посмотреть? Например: кино про хоккей">
+    <button>Найти</button>
+  </form>
+  <p>
+    <a class="tag {% if not current %}current{% endif %}" href="/">все</a>
+    {% for tag in tags %}
+      <a class="tag {% if tag == current %}current{% endif %}" href="/?tag={{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </p>
+  {% for movie in movies %}
+    <div class="movie">
+      <b>{{ movie.title }}</b> ({{ movie.year }})
+      {% for tag in movie.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      <div>{{ movie.description }}</div>
+    </div>
+  {% endfor %}
+  <h2>Добавить фильм</h2>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" action="/movies">
+    <input name="title" placeholder="Название">
+    <input name="year" placeholder="Год">
+    <textarea name="description" rows="3" placeholder="Краткое описание"></textarea>
+    <input name="tags" placeholder="Теги через запятую">
+    <button>Добавить</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+    messages = [
+        {'role': 'system', 'content': PHOTO_RULE},
+        {'role': 'user', 'content': [
+            {'type': 'image_url', 'image_url': {'url': image_to_data_uri(photo)}},
+            {'type': 'text', 'text': 'Заказанный товар: ' + ordered_item},
+        ]},
+    ]
+    response = model.create_chat_completion(
+        messages=messages, max_tokens=200, temperature=0.2,
+        response_format={'type': 'json_object', 'schema': PHOTO_SCHEMA},
+    )
+    return json.loads(clean_answer(response))

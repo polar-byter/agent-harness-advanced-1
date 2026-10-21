@@ -1,0 +1,6 @@
+    segments = model.transcribe(audio, language='ru')
+    lines = []
+    for segment in segments:
+        seconds = segment.t0 // 100
+        lines.append(f'[{seconds // 60:02}:{seconds % 60:02}] {segment.text.strip()}')
+    return lines

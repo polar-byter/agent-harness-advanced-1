@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.checks/
+*.gguf
+*.bin
+*.db
+exercises/*/data/demo-journal.xlsx
+.env

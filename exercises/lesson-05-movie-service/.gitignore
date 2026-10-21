@@ -1,0 +1,5 @@
+.venv/
+.idea/
+__pycache__/
+*.db
+data/demo-journal.xlsx

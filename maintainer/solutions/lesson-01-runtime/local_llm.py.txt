@@ -1,0 +1,9 @@
+    messages = [
+        {'role': 'system', 'content': instruction + NO_THINK},
+        {'role': 'user', 'content': text},
+    ]
+    response = model.create_chat_completion(messages=messages, **settings)
+    answer = clean_answer(response)
+    if schema is not None:
+        return json.loads(answer)
+    return answer

@@ -1,0 +1,6 @@
+        query_vector = self.vector(self.TASK + query)
+        scored = []
+        for movie in movies:
+            scored.append((cosine(query_vector, self.movie_vector(movie)), movie))
+        scored.sort(key=lambda pair: pair[0], reverse=True)
+        return [movie for score, movie in scored[:top]]

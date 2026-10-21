@@ -1,0 +1,3 @@
+    entry = classify_entry(model, text)
+    append_entry(journal_path, author, text, extra=(entry['category'], entry['severity']))
+    return f'Записал в журнал: {entry["category"]}, серьёзность {entry["severity"]}.'
