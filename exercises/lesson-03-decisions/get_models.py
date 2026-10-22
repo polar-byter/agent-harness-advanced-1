@@ -3,7 +3,7 @@ import sys
 
 from local_llm import download, models_dir
 
-MODELS = ['embed']
+MODELS = ['chat']
 
 
 def main():

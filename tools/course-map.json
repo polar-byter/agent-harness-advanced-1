@@ -7,7 +7,7 @@
     {"source": "Уроки/01. Все уроки и каркасы.md", "path": "course/README.md"},
     {"source": "Уроки/Урок 1. Модель внутри программы.md", "path": "course/01-model-in-process.md"},
     {"source": "Уроки/Урок 2. Журнал проделок кота.md", "path": "course/02-cat-journal.md"},
-    {"source": "Уроки/Урок 3. Модель, которая каталогизирует.md", "path": "course/03-embeddings.md"},
+    {"source": "Уроки/Урок 3. Модель, которая принимает решения.md", "path": "course/03-decisions.md"},
     {"source": "Уроки/Урок 4. Модель зрения проверяет фото.md", "path": "course/04-vision.md"},
     {"source": "Уроки/Урок 5. Модель в веб-сервисе.md", "path": "course/05-movie-service.md"},
     {"source": "Уроки/Урок 6. Расшифровка голосового сообщения.md", "path": "course/06-speech.md"},
@@ -43,10 +43,10 @@
       "expected": "Проверка без модели: Стащил со стола котлету, пока все смотрели телевизор -> кухня, серьёзность 1"
     },
     {
-      "number": 3, "root": "lesson-03-embeddings", "path": "course/03-embeddings.md",
-      "title": "Модель, которая каталогизирует",
-      "targets": [["similar.py", "find_similar"]], "models": ["embed"], "requirements": ["llama"],
-      "expected": "Проверка без модели: Хочу вернуть деньги за чайник, он не включается"
+      "number": 3, "root": "lesson-03-decisions", "path": "course/03-decisions.md",
+      "title": "Модель, которая принимает решения",
+      "targets": [["decisions.py", "ask_choice"]], "models": ["chat"], "requirements": ["llama"],
+      "expected": "Проверка без модели: Списали деньги дважды за один заказ -> оплата, уверенность 0.97"
     },
     {
       "number": 4, "root": "lesson-04-vision", "path": "course/04-vision.md",

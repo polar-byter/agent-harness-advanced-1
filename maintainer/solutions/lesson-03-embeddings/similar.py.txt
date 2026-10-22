@@ -1,6 +1,0 @@
-    query_vector = embed_text(model, query)
-    scored = []
-    for record, vector in index:
-        scored.append((cosine(query_vector, vector), record))
-    scored.sort(key=lambda pair: pair[0], reverse=True)
-    return scored[:top]

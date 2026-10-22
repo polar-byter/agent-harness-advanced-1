@@ -1,0 +1,4 @@
+    probabilities = dict(zip(names, values))
+    choice = max(probabilities, key=probabilities.get)
+    return {'type': 'choice', 'choice': choice, 'confidence': probabilities[choice],
+            'probabilities': probabilities}
