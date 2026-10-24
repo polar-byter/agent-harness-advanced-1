@@ -27,7 +27,7 @@ TEXT = ('.py', '.md', '.json', '.txt', '.html')
 
 def check_markdown() -> tuple[int, int]:
     files = [path for path in ROOT.rglob('*.md') if not any(part in SKIP for part in path.relative_to(ROOT).parts)]
-    files += [ROOT / 'maintainer' / name for name in ('README.md', 'WORK_LOG.md')]
+    files += [path for path in (ROOT / 'maintainer' / name for name in ('README.md', 'WORK_LOG.md')) if path.is_file()]
     links = 0
     for path in files:
         text = path.read_text(encoding='utf-8')
