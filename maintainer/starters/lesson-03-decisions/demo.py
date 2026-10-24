@@ -1,7 +1,7 @@
 import time
 from pathlib import Path
 
-from decisions import compare_with_markup, decide, describe, read_json
+from decisions import decide, print_report, read_json
 from demo_check import check_exercise
 from local_llm import load_chat
 
@@ -18,13 +18,7 @@ def main():
             started = time.perf_counter()
             results = [(request, decide(model, request['text'], questions)) for request in requests]
             seconds = time.perf_counter() - started
-        for request, answers in results:
-            print(describe(request, answers, THRESHOLD))
-        report = compare_with_markup(results, THRESHOLD)
-        print(f'Порог {THRESHOLD}. Разложено программой: {report["auto"]}, '
-              f'совпало с разметкой: {report["correct"]}. Человеку: {len(report["manual"])}.')
-        for number, decision, confidence, expected in report['wrong']:
-            print(f'  Расхождение: {number} -> {decision} с уверенностью {confidence:.2f}, по разметке {expected}')
+        print_report(results, THRESHOLD)
         print(f'В среднем {seconds / len(requests):.1f} с на обращение')
     except (NotImplementedError, FileNotFoundError, ModuleNotFoundError, ValueError) as error:
         print(error)

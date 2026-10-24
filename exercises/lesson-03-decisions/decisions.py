@@ -92,7 +92,7 @@ def describe(request: dict, answers: dict, threshold: float = 0.9) -> str:
 
 
 def compare_with_markup(results: list, threshold: float = 0.9) -> dict:
-    """Сверяем решения программы с разметкой аналитика в поле queue каждого обращения."""
+    """Сверяем решения программы с разметкой в поле queue каждого обращения."""
     report = {'auto': 0, 'correct': 0, 'manual': [], 'wrong': []}
     for request, answers in results:
         decision = route(answers, threshold)
@@ -105,3 +105,14 @@ def compare_with_markup(results: list, threshold: float = 0.9) -> dict:
         else:
             report['wrong'].append((request['id'], decision, answers['queue']['confidence'], request['queue']))
     return report
+
+
+def print_report(results: list, threshold: float = 0.9) -> None:
+    """Одинаковый отчёт для любого источника ответов: Qwen3, Jev или FRIDA."""
+    for request, answers in results:
+        print(describe(request, answers, threshold))
+    report = compare_with_markup(results, threshold)
+    print(f'Порог {threshold}. Разложено программой: {report["auto"]}, '
+          f'совпало с разметкой: {report["correct"]}. Человеку: {len(report["manual"])}.')
+    for number, decision, confidence, expected in report['wrong']:
+        print(f'  Расхождение: {number} -> {decision} с уверенностью {confidence:.2f}, по разметке {expected}')

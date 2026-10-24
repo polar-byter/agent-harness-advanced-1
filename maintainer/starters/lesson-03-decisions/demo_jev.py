@@ -1,8 +1,8 @@
-"""Те же обращения и вопросы настоящему Jev. Нужен ключ TYPESAFE_API_KEY, тексты уходят в TypeSafe."""
+"""Те же обращения и вопросы настоящему Jev через OpenRouter. Тексты уходят в OpenRouter и TypeSafe."""
 import urllib.error
 from pathlib import Path
 
-from decisions import compare_with_markup, describe, read_json
+from decisions import print_report, read_json
 from jev_client import ask_jev
 
 ROOT = Path(__file__).resolve().parent
@@ -14,13 +14,9 @@ def main():
         requests = read_json(ROOT / 'data' / 'requests.json')
         questions = read_json(ROOT / 'data' / 'questions.json')
         results = [(request, ask_jev(request['text'], questions)) for request in requests]
-        for request, answers in results:
-            print(describe(request, answers, THRESHOLD))
-        report = compare_with_markup(results, THRESHOLD)
-        print(f'Порог {THRESHOLD}. Разложено программой: {report["auto"]}, '
-              f'совпало с разметкой: {report["correct"]}. Человеку: {len(report["manual"])}.')
+        print_report(results, THRESHOLD)
     except urllib.error.HTTPError as error:
-        print('Jev ответил ошибкой', error.code, error.read().decode('utf-8', 'replace'))
+        print('OpenRouter ответил ошибкой', error.code, error.read().decode('utf-8', 'replace'))
     except (ValueError, OSError) as error:
         print(error)
 
