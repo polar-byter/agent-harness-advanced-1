@@ -19,7 +19,7 @@ Whisper - модель распознавания речи от OpenAI с отк
 
 ## Откроем каркас
 
-Скачайте [архив урока](../downloads/lesson-06-speech.zip?raw=true), откройте папку `lesson-06-speech` в PyCharm и выберите общее окружение курса. Установите зависимости, к прежним добавится `pywhispercpp`:
+Скачайте [архив урока](../downloads/lesson-06-speech.zip?raw=true), откройте папку `lesson-06-speech` в PyCharm и выберите общее окружение курса: щёлкните имя интерпретатора в правом нижнем углу окна PyCharm и выберите в списке `agent-venv`, а не `.venv` из папки урока, где нет библиотек курса. Установите зависимости, к прежним добавится `pywhispercpp`:
 
 ```powershell
 python -m pip install --only-binary=:all: -r requirements.txt

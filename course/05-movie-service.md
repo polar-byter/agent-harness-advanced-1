@@ -34,7 +34,7 @@
 
 ## Откроем каркас и запустим сервис
 
-Скачайте [архив урока](../downloads/lesson-05-movie-service.zip?raw=true), откройте папку `lesson-05-movie-service` в PyCharm и выберите общее окружение курса. В терминале установите зависимости: к прежним добавится Flask.
+Скачайте [архив урока](../downloads/lesson-05-movie-service.zip?raw=true), откройте папку `lesson-05-movie-service` в PyCharm и выберите общее окружение курса: щёлкните имя интерпретатора в правом нижнем углу окна PyCharm и выберите в списке `agent-venv`, а не `.venv` из папки урока, где нет библиотек курса. В терминале установите зависимости: к прежним добавится Flask.
 
 ```powershell
 python -m pip install --only-binary=:all: -r requirements.txt

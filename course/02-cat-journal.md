@@ -13,7 +13,7 @@
 
 ## Откроем каркас
 
-Скачайте [архив урока](../downloads/lesson-02-cat-journal.zip?raw=true), распакуйте и откройте папку `lesson-02-cat-journal` через **File -> Open**. В настройках интерпретатора выберите общее окружение курса: **Add Local Interpreter -> Virtualenv Environment -> Existing** и `C:\Users\Имя\agent-venv\Scripts\python.exe`. Если в первом уроке вы не создавали окружение, потому что библиотека уже стояла в другом интерпретаторе, выберите его. В терминале PyCharm установите зависимости урока, к прежним добавится openpyxl:
+Скачайте [архив урока](../downloads/lesson-02-cat-journal.zip?raw=true), распакуйте и откройте папку `lesson-02-cat-journal` через **File -> Open**. Выберите общее окружение курса: щёлкните имя интерпретатора в правом нижнем углу окна PyCharm и выберите в списке `agent-venv`, а не `.venv` из папки урока, где нет библиотек курса. Если `agent-venv` в списке нет, выберите **Add New Interpreter -> Add Local Interpreter**, затем существующее окружение и путь `C:\Users\Имя\agent-venv\Scripts\python.exe`. Картинка с этим списком - в [первом уроке](01-model-in-process.md). Если в первом уроке вы не создавали окружение, потому что библиотека уже стояла в другом интерпретаторе, выберите его. В терминале PyCharm установите зависимости урока, к прежним добавится openpyxl:
 
 ```powershell
 python -m pip install --only-binary=:all: -r requirements.txt
