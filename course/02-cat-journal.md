@@ -61,6 +61,15 @@ python -m pip install --only-binary=:all: -r requirements.txt
 
 </details>
 
+<img src="../assets/lesson-02-journal.gif" width="480" alt="lesson-02-journal">
+
+<details>
+<summary>Статичный вариант</summary>
+
+<img src="../assets/lesson-02-journal.png" width="480" alt="lesson-02-journal">
+
+</details>
+
 ## Категории с пояснениями
 
 Откройте `journal_ai.py`. Сверху словарь категорий:
@@ -147,14 +156,5 @@ CATEGORIES = {
 ## Что мы получили
 
 Утилита читает журнал из Excel, раскладывает записи по фиксированному списку категорий и сохраняет результат обратно в файл. Модель здесь отвечает за одно узкое действие, а правильность разметки проверяет человек по контрольным записям. Тот же журнал мы ещё встретим: в седьмом уроке Telegram-бот будет записывать в него новые проделки.
-
-<img src="../assets/lesson-02-journal.gif" width="480" alt="lesson-02-journal">
-
-<details>
-<summary>Статичный вариант</summary>
-
-<img src="../assets/lesson-02-journal.png" width="480" alt="lesson-02-journal">
-
-</details>
 
 Дальше: [урок 3. Модель, которая принимает решения](03-decisions.md).

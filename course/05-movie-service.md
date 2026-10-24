@@ -23,6 +23,15 @@
 
 Возьмём Qwen3-Embedding-0.6B из [официального репозитория Qwen](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B-GGUF): файл около 640 МБ, понимает русский и работает через ту же библиотеку `llama-cpp-python`. Перед текстом запроса ставится короткое пояснение задачи, у нас "Instruct: Найди фильм по описанию зрителя". Qwen3-Embedding обучали с такими пояснениями, и они подсказывают модели, какая похожесть нас интересует: по содержанию фильма, а не, например, по стилю письма.
 
+<img src="../assets/lesson-05-service.gif" width="480" alt="lesson-05-service">
+
+<details>
+<summary>Статичный вариант</summary>
+
+<img src="../assets/lesson-05-service.png" width="480" alt="lesson-05-service">
+
+</details>
+
 ## Откроем каркас и запустим сервис
 
 Скачайте [архив урока](../downloads/lesson-05-movie-service.zip?raw=true), откройте папку `lesson-05-movie-service` в PyCharm и выберите общее окружение курса. В терминале установите зависимости: к прежним добавится Flask.
@@ -141,14 +150,5 @@ def main():
 ## Что мы получили
 
 Модель вошла в сервис через один класс со знакомым методом `find` и одну строку в точке сборки. Сервис не стал зависеть от модели: его можно запустить с поиском по словам, проверить на подставной модели и поменять способ поиска, не трогая страницы и базу.
-
-<img src="../assets/lesson-05-service.gif" width="480" alt="lesson-05-service">
-
-<details>
-<summary>Статичный вариант</summary>
-
-<img src="../assets/lesson-05-service.png" width="480" alt="lesson-05-service">
-
-</details>
 
 Дальше: [урок 6. Расшифровка голосового сообщения](06-speech.md).
