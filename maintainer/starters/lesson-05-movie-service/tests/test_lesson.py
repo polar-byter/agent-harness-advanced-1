@@ -9,6 +9,7 @@ from demo_check import ExampleEmbedder
 from repository import MovieRepository
 from search import KeywordSearch, SemanticSearch
 from service import CatalogService
+from web import create_app
 
 
 class LessonTests(unittest.TestCase):
@@ -18,6 +19,21 @@ class LessonTests(unittest.TestCase):
 
     def tearDown(self):
         self.folder.cleanup()
+
+    def test_catalog_works_before_exercise(self):
+        service = CatalogService(self.repository, KeywordSearch())
+        service.load_seed(ROOT / 'data' / 'movies.json')
+        app = create_app(service)
+        app.testing = True
+        client = app.test_client()
+        self.assertEqual(client.get('/').status_code, 200)
+        self.assertEqual(client.get('/?tag=спорт').status_code, 200)
+        self.assertEqual(client.get('/api/search?q=хоккей').get_json(), {'movies': []})
+        self.assertEqual(client.post('/movies', data={'title': ''}).status_code, 400)
+        response = client.post('/movies', data={
+            'title': 'Новый фильм', 'year': '2026', 'description': 'Про хоккей', 'tags': 'спорт'})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(client.get('/api/search?q=хоккей').get_json()['movies'][0]['title'], 'Новый фильм')
 
     def test_semantic_search_in_service(self):
         service = CatalogService(self.repository, SemanticSearch(ExampleEmbedder()))

@@ -13,8 +13,8 @@ def read_allowed(path: Path) -> set[int]:
     """Номера пользователей Telegram, которым можно писать в журнал. Строки с # пропускаем."""
     if not path.is_file():
         return set()
-    lines = path.read_text(encoding='utf-8').splitlines()
-    return {int(line.strip()) for line in lines if line.strip() and not line.startswith('#')}
+    lines = [line.strip() for line in path.read_text(encoding='utf-8-sig').splitlines()]
+    return {int(line) for line in lines if line and not line.startswith('#')}
 
 
 def handle_text(model, journal_path: Path, author: str, text: str) -> str:

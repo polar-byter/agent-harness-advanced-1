@@ -33,6 +33,11 @@ class LessonTests(unittest.TestCase):
         handle_text(model, self.journal, 'Папа', 'а' * 600)
         self.assertEqual(model.calls, [])
 
+    def test_allowed_users_from_windows_notepad(self):
+        path = Path(self.folder.name) / 'allowed.txt'
+        path.write_text('  # семья\n123\n  456  \n', encoding='utf-8-sig')
+        self.assertEqual(read_allowed(path), {123, 456})
+
     def test_allowed_users_file(self):
         path = Path(self.folder.name) / 'allowed.txt'
         path.write_text('# семья\n123\n\n456\n', encoding='utf-8')

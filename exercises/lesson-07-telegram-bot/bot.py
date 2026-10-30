@@ -17,7 +17,7 @@ TOKEN_FILE = Path.home() / 'agent-secrets' / 'telegram_token.txt'
 def read_token() -> str:
     token = os.environ.get('TELEGRAM_BOT_TOKEN', '').strip()
     if not token and TOKEN_FILE.is_file():
-        token = TOKEN_FILE.read_text(encoding='utf-8').strip()
+        token = TOKEN_FILE.read_text(encoding='utf-8-sig').strip()
     if not token:
         raise SystemExit(f'Нет токена бота. Сохраните его в файл {TOKEN_FILE}')
     return token

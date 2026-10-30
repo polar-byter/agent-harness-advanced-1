@@ -31,3 +31,7 @@ def create_app(service) -> Flask:
         return {'movies': service.find(request.args.get('q', ''))}
 
     return app
+
+
+if __name__ == '__main__':
+    print('Этот файл определяет веб-слой. Чтобы открыть каталог, запустите run.py.')

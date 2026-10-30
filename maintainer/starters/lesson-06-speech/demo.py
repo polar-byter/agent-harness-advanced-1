@@ -18,6 +18,8 @@ def main():
             lines = transcribe(model, audio)
             print(f'Расшифровка за {perf_counter() - start:.1f} сек:')
             print('\n'.join(lines))
+        # Убираем последнюю ссылку на Whisper: его деструктор освобождает память модели.
+        del model
         with load_chat() as chat_model:
             print('Карточка обращения:', call_card(chat_model, lines))
     except (NotImplementedError, FileNotFoundError, ModuleNotFoundError, ValueError) as error:
