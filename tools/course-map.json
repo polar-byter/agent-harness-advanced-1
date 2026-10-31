@@ -1,6 +1,6 @@
 {
-  "course": "Agent Harness Workshop/Расширенный курс 1",
-  "materials": "Agent Harness Workshop/Расширенный курс 1/Уроки/Материалы",
+  "course": "Agent Harness Advanced 1",
+  "materials": "Agent Harness Advanced 1/Уроки/Материалы",
   "main_course": "https://github.com/polar-byter/agent-harness-workshop/blob/main/",
   "documents": [
     {"source": "Уроки/00. Вводная. Вторая ступень.md", "path": "course/00-introduction.md"},

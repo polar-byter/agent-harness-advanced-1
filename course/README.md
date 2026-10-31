@@ -14,7 +14,9 @@
 | [6. Расшифровка голосового сообщения](06-speech.md) | [lesson-06-speech](../downloads/lesson-06-speech.zip?raw=true) | Whisper small, 490 МБ; Qwen3-1.7B | pywhispercpp |
 | [7. Telegram-бот](07-telegram-bot.md) | [lesson-07-telegram-bot](../downloads/lesson-07-telegram-bot.zip?raw=true) | Qwen3-1.7B | pyTelegramBotAPI |
 
-К уроку 3 есть дополнение [Как устроен decisions.py](03-decisions-module.md): разбор всего модуля по строкам, его можно читать по желанию.
+Дополнительные разборы модулей для новичков:
+* К уроку 1: [Как устроен модуль local_llm.py](01-local-llm-module.md) (загрузка GGUF, C++ движок, контекстные менеджеры и грамматика JSON).
+* К уроку 3: [Как устроен decisions.py](03-decisions-module.md) (разбор модуля маршрутизации обращений по строкам).
 
 Итоги и опубликованные кейсы - в [заключении](conclusion.md).
 
