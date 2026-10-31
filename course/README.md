@@ -14,11 +14,15 @@
 | [6. Расшифровка голосового сообщения](06-speech.md) | [lesson-06-speech](../downloads/lesson-06-speech.zip?raw=true) | Whisper small, 490 МБ; Qwen3-1.7B | pywhispercpp |
 | [7. Telegram-бот](07-telegram-bot.md) | [lesson-07-telegram-bot](../downloads/lesson-07-telegram-bot.zip?raw=true) | Qwen3-1.7B | pyTelegramBotAPI |
 
-Дополнительные разборы модулей для новичков:
-* К уроку 1: [Как устроен модуль local_llm.py](01-local-llm-module.md) (загрузка GGUF, C++ движок, контекстные менеджеры и грамматика JSON).
-* К уроку 3: [Как устроен decisions.py](03-decisions-module.md) (разбор модуля маршрутизации обращений по строкам).
+## Дополнительные подробные разборы модулей для новичков
 
-Итоги и опубликованные кейсы - в [заключении](conclusion.md).
+* **К уроку 1:** [Как устроен модуль local_llm.py](01-local-llm-module.md) (загрузка GGUF, C++ движок, контекстные менеджеры и грамматика JSON).
+* **К уроку 2:** [Как устроен журнал кота (app.py, journal_io.py, journal_ai.py)](02-cat-journal-modules.md) (Excel через openpyxl, Tkinter GUI, потоки threading и очереди queue).
+* **К уроку 3:** [Как устроен decisions.py](03-decisions-module.md) (разбор модуля маршрутизации обращений по строкам).
+* **К уроку 4:** [Как устроен photo_check.py](04-vision-module.md) (Base64 кодирование картинок, проектор mmproj и мультимодальные схемы).
+* **К уроку 5:** [Как устроен веб-сервис каталога фильмов](05-movie-service-modules.md) (Flask, SQLite репозиторий, паттерн Стратегия и векторные эмбеддинги).
+* **К уроку 6:** [Как устроен speech.py](06-speech-module.md) (модуль wave, нормализация PCM звука, сегменты Whisper и таймкоды).
+* **К уроку 7:** [Как устроен Telegram-бот](07-telegram-bot-modules.md) (TeleBot, безопасные токены, декораторы, белый список и long polling).
 
 ## Как работать с каркасом
 
