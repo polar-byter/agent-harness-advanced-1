@@ -1,7 +1,7 @@
 {
   "format": 1,
   "source": "Obsidian: только читательский курс",
-  "documents": 11,
+  "documents": 12,
   "lessons": 7,
   "files": {
     "assets/lesson-01-ask.gif": "9f0613cd0cfcee44b9ce8e33061c50a5016b37029cb523368edffd4b33c9b04f",
@@ -28,7 +28,7 @@
     "course/05-movie-service.md": "9c88eb64994cd9ef6af3ca1dd7d11a3b1ebea4a49aa7b542316e4ace98832c5a",
     "course/06-speech.md": "69c9895bfc4692d386f73b80c117afc541a07a96963815b04f86bc4f4c12089f",
     "course/07-telegram-bot.md": "565ed38607946f90bf3331dd72713c1935d3eb63052b15dc8d8bf6dbb18cc8e8",
-    "course/README.md": "56de6723bcbe9716d10159d7c7f00d200952f8167b5a2e9da17a7156f737c094",
+    "course/README.md": "6ea28d86bcad1bfa353b0414c1b792c5459ce6c20714ad52a89f7a7d84fb4a60",
     "course/conclusion.md": "0c119c33f81e7a7f78a8507f2a097e40022b1449c7e51cae977b0c95f6c2e044",
     "downloads/lesson-01-runtime.zip": "714f37b6eceaec4c0abc88022ac077dbfb4e8b59a0c4aab9e88565df156de828",
     "downloads/lesson-02-cat-journal.zip": "f6367f63b401d4b2531ab179993c5fafb1cc20ce6f7596e34b5eb765f7d95851",
@@ -133,6 +133,8 @@
     "exercises/lesson-07-telegram-bot/journal_io.py": "c6c27ebaff2af8db4c561671916c876d47d2f5760f409280d55f162f974dba35",
     "exercises/lesson-07-telegram-bot/local_llm.py": "c31c5cb1e63f6a0da70d28ca004e31aac7419cc5805606df8844fd39578c01ba",
     "exercises/lesson-07-telegram-bot/requirements.txt": "bb23823bea73f1a361e3380a721f70615c0139ee35d0ddcce8ddec7504200f8d",
-    "exercises/lesson-07-telegram-bot/tests/test_lesson.py": "91944484b5ae42b314caa82485366f57aada25051242cb8d8bbdfc2e5f90e004"
+    "exercises/lesson-07-telegram-bot/tests/test_lesson.py": "91944484b5ae42b314caa82485366f57aada25051242cb8d8bbdfc2e5f90e004",
+    "course/fine-tuning/lab-synthetic-dialogues.md": "0993b411dcc9f27f2a40490e057aa75593261b112f7ed8fb7364cd07d5246b65",
+    "downloads/fine-tuning-dialogues.zip": "88c3a36134088466f08f4cbca221ec280d0aabb136597e2750a9a5c6c03ee08d"
   }
 }

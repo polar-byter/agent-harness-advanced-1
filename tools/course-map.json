@@ -1,7 +1,8 @@
 {
-  "course": "Agent Harness Workshop/Расширенный курс 1",
-  "materials": "Agent Harness Workshop/Расширенный курс 1/Уроки/Материалы",
+  "course": "Agent Harness Advanced 1",
+  "materials": "Agent Harness Advanced 1/Уроки/Материалы",
   "main_course": "https://github.com/polar-byter/agent-harness-workshop/blob/main/",
+  "downloads": {"Уроки/Материалы/fine-tuning-dialogues.zip": "downloads/fine-tuning-dialogues.zip"},
   "documents": [
     {"source": "Уроки/00. Вводная. Вторая ступень.md", "path": "course/00-introduction.md"},
     {"source": "Уроки/01. Все уроки и каркасы.md", "path": "course/README.md"},
@@ -13,7 +14,8 @@
     {"source": "Уроки/Урок 5. Модель в веб-сервисе.md", "path": "course/05-movie-service.md"},
     {"source": "Уроки/Урок 6. Расшифровка голосового сообщения.md", "path": "course/06-speech.md"},
     {"source": "Уроки/Урок 7. Telegram-бот на локальной модели.md", "path": "course/07-telegram-bot.md"},
-    {"source": "Уроки/Заключение. Что мы собрали и где это пригодится.md", "path": "course/conclusion.md"}
+    {"source": "Уроки/Заключение. Что мы собрали и где это пригодится.md", "path": "course/conclusion.md"},
+    {"source": "Уроки/Дополнительно. Дообучение небольшой модели на синтетических диалогах.md", "path": "course/fine-tuning/lab-synthetic-dialogues.md"}
   ],
   "requirements": {
     "llama": [

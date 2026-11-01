@@ -45,6 +45,8 @@ def main():
     mapping = {course + '/' + item['source'][:-3]: item['path'] for item in config['documents']}
     for lesson in config['lessons']:
         mapping[materials + '/' + lesson['root'] + '.zip'] = 'downloads/' + lesson['root'] + '.zip'
+    extra_downloads = {course + '/' + key: value for key, value in config.get('downloads', {}).items()}
+    mapping.update(extra_downloads)
     pending = {}
 
     def stage(relative: str, data: bytes) -> None:
@@ -98,6 +100,8 @@ def main():
             text = heading + '\n\n' + links + '\n\n' + rest
         stage(destination, text.encode('utf-8'))
     for source, destination in assets.items():
+        stage(destination, (vault / source).read_bytes())
+    for source, destination in extra_downloads.items():
         stage(destination, (vault / source).read_bytes())
     for lesson in config['lessons']:
         archive_path = vault / materials / (lesson['root'] + '.zip')
