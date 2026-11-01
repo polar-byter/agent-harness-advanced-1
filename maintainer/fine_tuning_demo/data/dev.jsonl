@@ -1,0 +1,9 @@
+{"id": "renew-4-0", "template_group": "renew-4", "split": "dev", "utterance": "Поменяйте срок возврата книги Маяк на острове на неделю позже", "context": {"current_loan": "Маяк на острове"}, "expected": "renew"}
+{"id": "renew-4-1", "template_group": "renew-4", "split": "dev", "utterance": "Поменяйте срок возврата книги Атлас старых дорог на неделю позже", "context": {"current_loan": "Атлас старых дорог"}, "expected": "renew"}
+{"id": "find-4-0", "template_group": "find-4", "split": "dev", "utterance": "Отыщите для меня книгу Маяк на острове", "context": {}, "expected": "find"}
+{"id": "find-4-1", "template_group": "find-4", "split": "dev", "utterance": "Отыщите для меня книгу Атлас старых дорог", "context": {}, "expected": "find"}
+{"id": "question-4-0", "template_group": "question-4", "split": "dev", "utterance": "Не продлевайте Маяк на острове, сначала объясните правила", "context": {}, "expected": "question"}
+{"id": "question-4-1", "template_group": "question-4", "split": "dev", "utterance": "Не продлевайте Атлас старых дорог, сначала объясните правила", "context": {}, "expected": "question"}
+{"id": "clarify-4-0", "template_group": "clarify-4", "split": "dev", "utterance": "Ту самую оставьте еще на неделю", "context": {}, "expected": "clarify"}
+{"id": "context-4-0", "template_group": "context-4", "split": "dev", "utterance": "Недели сверху хватит", "context": {}, "expected": "clarify"}
+{"id": "context-4-1", "template_group": "context-4", "split": "dev", "utterance": "Недели сверху хватит", "context": {"current_loan": "Письма с орбиты"}, "expected": "renew"}

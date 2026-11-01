@@ -35,6 +35,7 @@ def relative_link(source: Path, target: Path) -> str:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--vault', type=Path, required=True, help='Корень хранилища Obsidian')
+    parser.add_argument('--only', action='append', default=[], help='Выгрузить только указанную страницу course/... без пересборки остальных')
     args = parser.parse_args()
     vault = args.vault.resolve()
     config = json.loads((ROOT / 'tools' / 'course-map.json').read_text(encoding='utf-8'))
@@ -43,6 +44,12 @@ def main():
     previous = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else {'files': {}}
     # Ключ - путь от корня хранилища без .md, как его пишут в wiki-ссылках.
     mapping = {course + '/' + item['source'][:-3]: item['path'] for item in config['documents']}
+    extra_files = {course + '/' + item['source']: item['path'] for item in config.get('extra_files', [])}
+    mapping.update(extra_files)
+    selected = set(args.only)
+    if selected - {item['path'] for item in config['documents']}:
+        raise ValueError('Неизвестная страница для частичной выгрузки')
+    used_files = set()
     for lesson in config['lessons']:
         mapping[materials + '/' + lesson['root'] + '.zip'] = 'downloads/' + lesson['root'] + '.zip'
     pending = {}
@@ -77,6 +84,8 @@ def main():
                 return f'<img src="{html.escape(url)}" width="{width}" alt="{html.escape(Path(source).stem)}">'
             if source not in mapping:
                 raise ValueError('Нет читательского назначения для ссылки: ' + raw)
+            if source in extra_files:
+                used_files.add(source)
             url = relative_link(Path(destination), Path(mapping[source]))
             if url.endswith('.zip'):
                 url += '?raw=true'
@@ -88,6 +97,8 @@ def main():
     lessons = {lesson['path']: lesson for lesson in config['lessons']}
     for document in config['documents']:
         destination = document['path']
+        if selected and destination not in selected:
+            continue
         text = convert((vault / course / document['source']).read_text(encoding='utf-8'), destination)
         lesson = lessons.get(destination)
         if lesson:
@@ -99,7 +110,12 @@ def main():
         stage(destination, text.encode('utf-8'))
     for source, destination in assets.items():
         stage(destination, (vault / source).read_bytes())
+    for source, destination in extra_files.items():
+        if not selected or source in used_files:
+            stage(destination, (vault / source).read_bytes())
     for lesson in config['lessons']:
+        if selected and lesson['path'] not in selected:
+            continue
         archive_path = vault / materials / (lesson['root'] + '.zip')
         stage('downloads/' + lesson['root'] + '.zip', archive_path.read_bytes())
         with ZipFile(archive_path) as archive:
@@ -122,10 +138,12 @@ def main():
         target = ROOT / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
+    hashes = dict(previous['files']) if selected else {}
+    hashes.update({key: digest(value) for key, value in pending.items()})
     manifest = {'format': 1, 'source': 'Obsidian: только читательский курс', 'documents': len(config['documents']),
-                'lessons': len(config['lessons']), 'files': {key: digest(value) for key, value in sorted(pending.items())}}
+                'lessons': len(config['lessons']), 'files': dict(sorted(hashes.items()))}
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print('Выгружено:', len(config['documents']), 'страниц,', len(config['lessons']), 'каркасов,', len(assets), 'схем')
+    print('Выгружено файлов:', len(pending), 'Режим:', 'выбранные страницы' if selected else 'весь курс')
 
 
 if __name__ == '__main__':

@@ -26,6 +26,16 @@ python tools/check_solutions.py
 
 ## Что проверяется
 
+Отдельное дополнение по дообучению использует независимый пример `maintainer/fine_tuning_demo`. Подготовить его архив и выгрузить только эту страницу можно без перезаписывания остальных уроков:
+
+```powershell
+python tools/build_fine_tuning_supplement.py --vault 'путь-к-хранилищу'
+python tools/export_obsidian.py --vault 'путь-к-хранилищу' --only course/fine-tuning-dialogues.md
+python tools/check_fine_tuning_supplement.py
+```
+
+Параметр `--only` сохраняет прежние записи манифеста экспорта и по-прежнему запрещает перезапись вручную измененного файла. Само обучение дополнения этими командами не запускается.
+
 `check_course.py` проверяет пунктуацию и ссылки в Markdown, синтаксис Python, совпадение каждого ZIP с папкой `exercises`, состав `requirements.txt`, совпадение `local_llm.py` с общим модулем и то, что незавершённые `demo_check.py` и `demo.py` выводят подсказку `Допишите`. Модели и сеть не используются.
 
 `check_solutions.py` во временных копиях подставляет эталонные решения, запускает `tests/test_lesson.py` и `demo_check.py` и сверяет вывод с полем `expected` из карты курса. Это проверка каркасов и тестов, а не качества моделей.

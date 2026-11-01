@@ -1,0 +1,9 @@
+{"id": "renew-5-0", "template_group": "renew-5", "split": "exam", "utterance": "Разрешите еще неделю читать Маяк на острове, оформите продление", "context": {"current_loan": "Маяк на острове"}, "expected": "renew"}
+{"id": "renew-5-1", "template_group": "renew-5", "split": "exam", "utterance": "Разрешите еще неделю читать Атлас старых дорог, оформите продление", "context": {"current_loan": "Атлас старых дорог"}, "expected": "renew"}
+{"id": "find-5-0", "template_group": "find-5", "split": "exam", "utterance": "Посмотрите по каталогу, где есть Маяк на острове", "context": {}, "expected": "find"}
+{"id": "find-5-1", "template_group": "find-5", "split": "exam", "utterance": "Посмотрите по каталогу, где есть Атлас старых дорог", "context": {}, "expected": "find"}
+{"id": "question-5-0", "template_group": "question-5", "split": "exam", "utterance": "Вы умеете продлевать Маяк на острове или надо идти к библиотекарю", "context": {}, "expected": "question"}
+{"id": "question-5-1", "template_group": "question-5", "split": "exam", "utterance": "Вы умеете продлевать Атлас старых дорог или надо идти к библиотекарю", "context": {}, "expected": "question"}
+{"id": "clarify-5-0", "template_group": "clarify-5", "split": "exam", "utterance": "Дайте подольше почитать", "context": {}, "expected": "clarify"}
+{"id": "context-5-0", "template_group": "context-5", "split": "exam", "utterance": "Срок увеличьте на неделю", "context": {}, "expected": "clarify"}
+{"id": "context-5-1", "template_group": "context-5", "split": "exam", "utterance": "Срок увеличьте на неделю", "context": {"current_loan": "Письма с орбиты"}, "expected": "renew"}
