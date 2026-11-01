@@ -134,7 +134,11 @@
     "exercises/lesson-07-telegram-bot/local_llm.py": "c31c5cb1e63f6a0da70d28ca004e31aac7419cc5805606df8844fd39578c01ba",
     "exercises/lesson-07-telegram-bot/requirements.txt": "bb23823bea73f1a361e3380a721f70615c0139ee35d0ddcce8ddec7504200f8d",
     "exercises/lesson-07-telegram-bot/tests/test_lesson.py": "91944484b5ae42b314caa82485366f57aada25051242cb8d8bbdfc2e5f90e004",
-    "course/fine-tuning/lab-synthetic-dialogues.md": "0993b411dcc9f27f2a40490e057aa75593261b112f7ed8fb7364cd07d5246b65",
-    "downloads/fine-tuning-dialogues.zip": "88c3a36134088466f08f4cbca221ec280d0aabb136597e2750a9a5c6c03ee08d"
+    "course/fine-tuning/lab-synthetic-dialogues.md": "e55054a20d5a31e9ecaddce9c203b36cfe80e048572af90c673d4418b8dcc8e7",
+    "downloads/fine-tuning-dialogues.zip": "531530227f563201c730005ae441c8655ca0cd585e2ec17315159c9223a17c44",
+    "assets/finetuning-matrix.png": "b58ea251cb5799aa4b74e739a537841afdb78155a9ee6e7b68af6c9527ee315a",
+    "assets/finetuning-lora.png": "07627446024d20f6569ef90430e922e374edbb16659c52874d87127073eec577",
+    "assets/finetuning-files.png": "f8e11c0847e739633849b65f3f976c5b2c6d706c9b57d6e6ec1f9306c84c39c2",
+    "assets/finetuning-mask.png": "abd37097a31696989a4b170b0ec4248177042e5d4f226e1c3d3d77e0a5eea97d"
   }
 }
